@@ -7,7 +7,7 @@ attendance=st.number_input("Enter Attendance: ",min_value=0.0, max_value=100, va
 
 if st.button("Predict"):
   prediction=model.predict([[hours,attendance]])
-  pass_probability = model.predict_proba([[hours]])[0][1] * 100
+  pass_probability = model.predict_proba([[hours,attendance]])[0][1] * 100
   if prediction[0]==1:
     st.success("Pass")
   else:
